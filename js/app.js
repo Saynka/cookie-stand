@@ -158,7 +158,7 @@ var tokyo = {
   name: "Tokyo",
   min: 3,
   max: 24,
-  avg: 61.2,
+  avg: 1.2,
   store: true,
   dailySales:[],
   numOfGuests: function(){
