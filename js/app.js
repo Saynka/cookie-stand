@@ -18,7 +18,6 @@
 // function sales(guestsperhour, avg) {
 //   return guestsperhour * avg;
 // }
-
 // var storeHoursArr = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm']
 
 // for (var i = 0; i <= 13; i = i + 1){
@@ -38,8 +37,6 @@
 //   return guestsperhour * avg;
 // }
 
-// var storeHoursArr = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm']
-
 // for (var i = 0; i <= 13; i = i + 1){
 //   var guesttest = numOfGuests(3, 24);
 //  console.log(storeHoursArr[i], sales(guesttest, 61.2));
@@ -58,8 +55,6 @@
 //   return guestsperhour * avg;
 // }
 
-// var storeHoursArr = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm']
-
 // for (var i = 0; i <= 13; i = i + 1){
 //   var guesttest = numOfGuests(11, 38);
 //  console.log(storeHoursArr[i], sales(guesttest, 3.7));
@@ -77,8 +72,6 @@
 // function sales(guestsperhour, avg) {
 //   return guestsperhour * avg;
 // }
-
-// var storeHoursArr = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm']
 
 // for (var i = 0; i <= 13; i = i + 1){
 //   var guesttest = numOfGuests(20, 38);
@@ -112,214 +105,87 @@
 
 var storeHoursArr = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm']
 
-var seattle = {
-  name: "Seattle",
-  min: 23,
-  max: 65,
-  avg: 6.3,
-  store: true,
-  dailySales:[],
-  numOfGuests: function(){
-    return Math.ceil(Math.random() * (this.max - this.min + 1) + this.min)
-  },
-  sales: function(guestsperhour) {
-    return Math.ceil(guestsperhour * this.avg);
-  },
-  generateDailySales: function(){
-    for (var i = 0; i < storeHoursArr.length; i++){
-      var projectedCustomers = this.numOfGuests()
-      var cookiesSales = this.sales(projectedCustomers) 
-      this.dailySales.push(cookiesSales)
-    }
-  },
+// var seattle = {
+//   name: "Seattle",
+//   min: 23,
+//   max: 65,
+//   avg: 6.3,
+//   store: true,
+  // dailySales:[],
+//   numOfGuests: function(){
+//     return Math.ceil(Math.random() * (this.max - this.min + 1) + this.min)
+  // },
+  // sales: function(guestsperhour) {
+  //   return Math.ceil(guestsperhour * this.avg);
+  // },
+  // generateDailySales: function(){
+  //   for (var i = 0; i < storeHoursArr.length; i++){
+  //     var projectedCustomers = this.numOfGuests()
+  //     var cookiesSales = this.sales(projectedCustomers) 
+  //     this.dailySales.push(cookiesSales)
+  //   }
+  // },
+  // render: function(){
+  //   var list = document.getElementById("Sales");
+  //   var listElement = document.createElement('li');
+  //   listElement.textContent = this.name;
+  //   list.appendChild(listElement);
+  //   for (var i = 0; i < storeHoursArr.length; i++){
+  //     var time = document.createElement('li');
+  //     time.textContent = `${storeHoursArr[i]}: ${this.dailySales[i]} cookies`
+  //     list.appendChild(time);
+  //   }
+  //  }
+  // }
+  // seattle.generateDailySales();
+  // seattle.render();
+// pair coding goals matt driveing Kale Navigating.
+  // take 115 thorugh 119 make one looped func to get gusest per hour GLOBAL
+  // convert generateDailySales to constructor method PROTOTYPE OR INTERNAL:
 
-  render: function(){
-    var list = document.getElementById("Sales");
-    var listElement = document.createElement('li');
-    listElement.textContent = this.name;
-    list.appendChild(listElement);
-    for (var i = 0; i < storeHoursArr.length; i++){
-      var time = document.createElement('li');
-      time.textContent = `${storeHoursArr[i]}: ${this.dailySales[i]} cookies`
-      list.appendChild(time);
-    }
+  // creat protype of render 
+    // create table and poputlate
+  var allLocations = [];
 
-    
-   }
-  
-  
-}
-seattle.generateDailySales();
-seattle.render();
-
-// Tokyo
-
-var tokyo = {
-  name: "Tokyo",
-  min: 3,
-  max: 24,
-  avg: 1.2,
-  store: true,
-  dailySales:[],
-  numOfGuests: function(){
-    return Math.ceil(Math.random() * (this.max - this.min + 1) + this.min)
-  },
-  sales: function(guestsperhour) {
-    return Math.ceil(guestsperhour * this.avg);
-  },
-  generateDailySales: function(){
-    for (var i = 0; i < storeHoursArr.length; i++){
-      var projectedCustomers = this.numOfGuests()
-      var cookiesSales = this.sales(projectedCustomers) 
-      this.dailySales.push(cookiesSales)
-    }
-  },
-
-  render: function(){
-    var list = document.getElementById("Sales");
-    var listElement = document.createElement('li');
-    listElement.textContent = this.name;
-    list.appendChild(listElement);
-    for (var i = 0; i < storeHoursArr.length; i++){
-      var time = document.createElement('li');
-      time.textContent = `${storeHoursArr[i]}: ${this.dailySales[i]} cookies`
-      list.appendChild(time);
-    }
+  function Location(min, max, avg, store,){
+    this.minCustomers = min;
+    this.maxCustomers = max;
+    this.avgCookies = avg;
+    this.storeName = store;
+    this.dailySales =  [];
+    this.storeHoursArr = [];
 
     
-   }
-  
-  
+    allLocations.push(this);
+  }
+  Location.prototype.cookiecount = function(){   
+// loop over hour for num of cust
+  var numberOfCustomers = 0;
+  var customerPerHour = [];
+  for (var i = 0; i < storeHoursArr.length; i++){      
+      numberOfCustomers = numberOfGuests(this.minCustomers, this.maxCustomers);
+      customerPerHour = Math.ceil(numberOfCustomers * this.avgCookies); 
+            
+    } 
+console.log(customerPerHour)
+  }
+  var seattle = new Location(23,65,6.3,'Seattle');
+
+
+// helper functions
+function numberOfGuests(minCustomers,maxCustomers){
+  for(var i=0; i < storeHoursArr.length; i++){
+    return Math.ceil(Math.random() * (maxCustomers - minCustomers + 1) + minCustomers)
+  };
 }
-tokyo.generateDailySales();
-tokyo.render();
 
-//  Dubai
-var dubai = {
-  name: "Dubai",
-  min: 11,
-  max: 38,
-  avg: 3.7,
-  store: true,
-  dailySales:[],
-  numOfGuests: function(){
-    return Math.ceil(Math.random() * (this.max - this.min + 1) + this.min)
-  },
-  sales: function(guestsperhour) {
-    return Math.ceil(guestsperhour * this.avg);
-  },
-  generateDailySales: function(){
-    for (var i = 0; i < storeHoursArr.length; i++){
-      var projectedCustomers = this.numOfGuests()
-      var cookiesSales = this.sales(projectedCustomers) 
-      this.dailySales.push(cookiesSales)
-    }
-  },
-
-  render: function(){
-    var list = document.getElementById("Sales");
-    var listElement = document.createElement('li');
-    listElement.textContent = this.name;
-    list.appendChild(listElement);
-    for (var i = 0; i < storeHoursArr.length; i++){
-      var time = document.createElement('li');
-      time.textContent = `${storeHoursArr[i]}: ${this.dailySales[i]} cookies`
-      list.appendChild(time);
-    }
-
-    
-   }
-  
-  
-}
-dubai.generateDailySales();
-dubai.render();
-
-var paris = {
-  name: "Paris",
-  min: 20,
-  max: 38,
-  avg: 2.3,
-  store: true,
-  dailySales:[],
-  numOfGuests: function(){
-    return Math.ceil(Math.random() * (this.max - this.min + 1) + this.min)
-  },
-  sales: function(guestsperhour) {
-    return Math.ceil(guestsperhour * this.avg);
-  },
-  generateDailySales: function(){
-    for (var i = 0; i < storeHoursArr.length; i++){
-      var projectedCustomers = this.numOfGuests()
-      var cookiesSales = this.sales(projectedCustomers) 
-      this.dailySales.push(cookiesSales)
-    }
-  },
-
-  render: function(){
-    var list = document.getElementById("Sales");
-    var listElement = document.createElement('li');
-    listElement.textContent = this.name;
-    list.appendChild(listElement);
-    for (var i = 0; i < storeHoursArr.length; i++){
-      var time = document.createElement('li');
-      time.textContent = `${storeHoursArr[i]}: ${this.dailySales[i]} cookies`
-      list.appendChild(time);
-    }
-
-    
-   }
-  
-  
-}
-paris.generateDailySales();
-paris.render();
-
-var lima = {
-  name: "Lima",
-  min: 2,
-  max: 16,
-  avg: 4.6,
-  store: true,
-  dailySales:[],
-  numOfGuests: function(){
-    return Math.ceil(Math.random() * (this.max - this.min + 1) + this.min)
-  },
-  sales: function(guestsperhour) {
-    return Math.ceil(guestsperhour * this.avg);
-  },
-  generateDailySales: function(){
-    for (var i = 0; i < storeHoursArr.length; i++){
-      var projectedCustomers = this.numOfGuests()
-      var cookiesSales = this.sales(projectedCustomers) 
-      this.dailySales.push(cookiesSales)
-    }
-  },
-
-  render: function(){
-    var list = document.getElementById("Sales");
-    var listElement = document.createElement('li');
-    listElement.textContent = this.name;
-    list.appendChild(listElement);
-    for (var i = 0; i < storeHoursArr.length; i++){
-      var time = document.createElement('li');
-      time.textContent = `${storeHoursArr[i]}: ${this.dailySales[i]} cookies`
-      list.appendChild(time);
-    }
-
-    
-   }
-  
-  
-}
-lima.generateDailySales();
-lima.render();
+//referance notes
 
 
-// var tokyo = {
+// toyko
 //   min: 3,
 //   max: 24,
-//   avg: 61.2,
+//   avg: 6.1,
 //   store: true,
 // }
 
@@ -347,7 +213,6 @@ lima.render();
 //   store: true,
 // }
 
-// console.log(sales(30, 6.3), numOfGuests(23,65))
 
 // // DO SOME WORK on a branch,
 // // CONSOLE: git add (FILES)
@@ -368,20 +233,3 @@ lima.render();
 // then i need to append my list element to parent element 
 // .textContent = this.dailySales;
 
-
-function Location(min, max, avg, store,){
-  this.minCustomers = min;
-  this.maxCustomers = max;
-  this.avgCustomers = avg;
-  this.storeName = store;
-  this.dailySales =  [];
-  this. storeHoursArr = []
-  allLocations.push(this);
-}
-
-Location.prototype.storeHoursArr = function(){
-  for
-}
-
-var seattle = new Location(23, 65, 6.3, 'Seattle');
-var seattle = new Location(23, 65, 6.3, 'Seattle')
