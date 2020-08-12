@@ -145,55 +145,207 @@ var seattle = {
     }
 
     
-    // var tableData = document.createElement('td');
-    // tableData.textContent = this.color;
-    // tableRow.appendChild(tableData);
+   }
   
-     
-    // line 136 grabbing list create a list element i need to give list element the content i want
-    // then i need to append my list element to parent element 
-    // .textContent = this.dailySales;
-
-
-
-  }
-    
-    
+  
 }
 seattle.generateDailySales();
-seattle.render()
+seattle.render();
 
+// Tokyo
 
 var tokyo = {
+  name: "Tokyo",
   min: 3,
   max: 24,
   avg: 61.2,
   store: true,
+  dailySales:[],
+  numOfGuests: function(){
+    return Math.ceil(Math.random() * (this.max - this.min + 1) + this.min)
+  },
+  sales: function(guestsperhour) {
+    return Math.ceil(guestsperhour * this.avg);
+  },
+  generateDailySales: function(){
+    for (var i = 0; i < storeHoursArr.length; i++){
+      var projectedCustomers = this.numOfGuests()
+      var cookiesSales = this.sales(projectedCustomers) 
+      this.dailySales.push(cookiesSales)
+    }
+  },
+
+  render: function(){
+    var list = document.getElementById("Sales");
+    var listElement = document.createElement('li');
+    listElement.textContent = this.name;
+    list.appendChild(listElement);
+    for (var i = 0; i < storeHoursArr.length; i++){
+      var time = document.createElement('li');
+      time.textContent = `${storeHoursArr[i]}: ${this.dailySales[i]} cookies`
+      list.appendChild(time);
+    }
+
+    
+   }
+  
+  
 }
+tokyo.generateDailySales();
+tokyo.render();
 
-
+//  Dubai
 var dubai = {
+  name: "Dubai",
   min: 11,
   max: 38,
   avg: 3.7,
   store: true,
-}
+  dailySales:[],
+  numOfGuests: function(){
+    return Math.ceil(Math.random() * (this.max - this.min + 1) + this.min)
+  },
+  sales: function(guestsperhour) {
+    return Math.ceil(guestsperhour * this.avg);
+  },
+  generateDailySales: function(){
+    for (var i = 0; i < storeHoursArr.length; i++){
+      var projectedCustomers = this.numOfGuests()
+      var cookiesSales = this.sales(projectedCustomers) 
+      this.dailySales.push(cookiesSales)
+    }
+  },
 
+  render: function(){
+    var list = document.getElementById("Sales");
+    var listElement = document.createElement('li');
+    listElement.textContent = this.name;
+    list.appendChild(listElement);
+    for (var i = 0; i < storeHoursArr.length; i++){
+      var time = document.createElement('li');
+      time.textContent = `${storeHoursArr[i]}: ${this.dailySales[i]} cookies`
+      list.appendChild(time);
+    }
+
+    
+   }
+  
+  
+}
+dubai.generateDailySales();
+dubai.render();
 
 var paris = {
+  name: "Paris",
   min: 20,
   max: 38,
   avg: 2.3,
   store: true,
-}
+  dailySales:[],
+  numOfGuests: function(){
+    return Math.ceil(Math.random() * (this.max - this.min + 1) + this.min)
+  },
+  sales: function(guestsperhour) {
+    return Math.ceil(guestsperhour * this.avg);
+  },
+  generateDailySales: function(){
+    for (var i = 0; i < storeHoursArr.length; i++){
+      var projectedCustomers = this.numOfGuests()
+      var cookiesSales = this.sales(projectedCustomers) 
+      this.dailySales.push(cookiesSales)
+    }
+  },
 
+  render: function(){
+    var list = document.getElementById("Sales");
+    var listElement = document.createElement('li');
+    listElement.textContent = this.name;
+    list.appendChild(listElement);
+    for (var i = 0; i < storeHoursArr.length; i++){
+      var time = document.createElement('li');
+      time.textContent = `${storeHoursArr[i]}: ${this.dailySales[i]} cookies`
+      list.appendChild(time);
+    }
+
+    
+   }
+  
+  
+}
+paris.generateDailySales();
+paris.render();
 
 var lima = {
+  name: "Lima",
   min: 2,
   max: 16,
   avg: 4.6,
   store: true,
+  dailySales:[],
+  numOfGuests: function(){
+    return Math.ceil(Math.random() * (this.max - this.min + 1) + this.min)
+  },
+  sales: function(guestsperhour) {
+    return Math.ceil(guestsperhour * this.avg);
+  },
+  generateDailySales: function(){
+    for (var i = 0; i < storeHoursArr.length; i++){
+      var projectedCustomers = this.numOfGuests()
+      var cookiesSales = this.sales(projectedCustomers) 
+      this.dailySales.push(cookiesSales)
+    }
+  },
+
+  render: function(){
+    var list = document.getElementById("Sales");
+    var listElement = document.createElement('li');
+    listElement.textContent = this.name;
+    list.appendChild(listElement);
+    for (var i = 0; i < storeHoursArr.length; i++){
+      var time = document.createElement('li');
+      time.textContent = `${storeHoursArr[i]}: ${this.dailySales[i]} cookies`
+      list.appendChild(time);
+    }
+
+    
+   }
+  
+  
 }
+lima.generateDailySales();
+lima.render();
+
+
+// var tokyo = {
+//   min: 3,
+//   max: 24,
+//   avg: 61.2,
+//   store: true,
+// }
+
+
+// var dubai = {
+//   min: 11,
+//   max: 38,
+//   avg: 3.7,
+//   store: true,
+// }
+
+
+// var paris = {
+//   min: 20,
+//   max: 38,
+//   avg: 2.3,
+//   store: true,
+// }
+
+
+// var lima = {
+//   min: 2,
+//   max: 16,
+//   avg: 4.6,
+//   store: true,
+// }
 
 // console.log(sales(30, 6.3), numOfGuests(23,65))
 
@@ -207,4 +359,30 @@ var lima = {
 // // CONSOLE git checkout -b (NEW BRANCH NAME) 
 // // GO BACK TO TOP OF STACK
 
+// var tableData = document.createElement('td');
+// tableData.textContent = this.color;
+// tableRow.appendChild(tableData);
 
+ 
+// line 136 grabbing list create a list element i need to give list element the content i want
+// then i need to append my list element to parent element 
+// .textContent = this.dailySales;
+
+
+// function Location(min, max, avg){
+//   this.min = min;
+//   this.max = max;
+//   this.avg = avg;
+//   this.store = store;
+//   this.dailySales =  0;
+//   this. storeHoursArr = [
+  
+//   ]
+//   allLocations.push(this);
+// }
+
+// Location.prototype.storeHoursArr = function(){
+//   for
+// }
+
+// var seattle = new Location(23, 65, 6.3, 'Seattle')
