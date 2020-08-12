@@ -369,20 +369,19 @@ lima.render();
 // .textContent = this.dailySales;
 
 
-// function Location(min, max, avg){
-//   this.min = min;
-//   this.max = max;
-//   this.avg = avg;
-//   this.store = store;
-//   this.dailySales =  0;
-//   this. storeHoursArr = [
-  
-//   ]
-//   allLocations.push(this);
-// }
+function Location(min, max, avg, store,){
+  this.minCustomers = min;
+  this.maxCustomers = max;
+  this.avgCustomers = avg;
+  this.storeName = store;
+  this.dailySales =  [];
+  this. storeHoursArr = []
+  allLocations.push(this);
+}
 
-// Location.prototype.storeHoursArr = function(){
-//   for
-// }
+Location.prototype.storeHoursArr = function(){
+  for
+}
 
-// var seattle = new Location(23, 65, 6.3, 'Seattle')
+var seattle = new Location(23, 65, 6.3, 'Seattle');
+var seattle = new Location(23, 65, 6.3, 'Seattle')
