@@ -132,9 +132,17 @@ var seattle = {
       this.dailySales.push(cookiesSales)
     }
   },
-  render: funtion(){
+
+  render: function(){
     var list = document.getElementById("Sales");
-    list.textContent = this.dailySales;
+    var listElement = document.createElement('li');
+    listElement.textContent = this.name;
+    list.appendChild(listElement);
+    for (var i = 0; i < storeHoursArr.length; i++){
+      var time = document.createElement('li');
+      time.textContent = `${storeHoursArr[i]}: ${this.dailySales[i]} cookies`
+      list.appendChild(time);
+    }
 
     
     // var tableData = document.createElement('td');
@@ -152,6 +160,9 @@ var seattle = {
     
     
 }
+seattle.generateDailySales();
+seattle.render()
+
 
 var tokyo = {
   min: 3,
