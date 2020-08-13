@@ -103,77 +103,88 @@
 
 
 
-var storeHoursArr = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm']
 
 // var seattle = {
-//   name: "Seattle",
-//   min: 23,
-//   max: 65,
-//   avg: 6.3,
-//   store: true,
+  //   name: "Seattle",
+  //   min: 23,
+  //   max: 65,
+  //   avg: 6.3,
+  //   store: true,
   // dailySales:[],
-//   numOfGuests: function(){
-//     return Math.ceil(Math.random() * (this.max - this.min + 1) + this.min)
-  // },
-  // sales: function(guestsperhour) {
-  //   return Math.ceil(guestsperhour * this.avg);
-  // },
-  // generateDailySales: function(){
-  //   for (var i = 0; i < storeHoursArr.length; i++){
-  //     var projectedCustomers = this.numOfGuests()
-  //     var cookiesSales = this.sales(projectedCustomers) 
-  //     this.dailySales.push(cookiesSales)
-  //   }
-  // },
-  // render: function(){
-  //   var list = document.getElementById("Sales");
-  //   var listElement = document.createElement('li');
-  //   listElement.textContent = this.name;
-  //   list.appendChild(listElement);
-  //   for (var i = 0; i < storeHoursArr.length; i++){
-  //     var time = document.createElement('li');
-  //     time.textContent = `${storeHoursArr[i]}: ${this.dailySales[i]} cookies`
-  //     list.appendChild(time);
-  //   }
-  //  }
-  // }
-  // seattle.generateDailySales();
-  // seattle.render();
-// pair coding goals matt driveing Kale Navigating.
-  // take 115 thorugh 119 make one looped func to get gusest per hour GLOBAL
-  // convert generateDailySales to constructor method PROTOTYPE OR INTERNAL:
-
-  // creat protype of render 
-    // create table and poputlate
-  var allLocations = [];
-
-  function Location(min, max, avg, store,){
+  //   numOfGuests: function(){
+    //     return Math.ceil(Math.random() * (this.max - this.min + 1) + this.min)
+    // },
+    // sales: function(guestsperhour) {
+      //   return Math.ceil(guestsperhour * this.avg);
+      // },
+      // generateDailySales: function(){
+        //   for (var i = 0; i < storeHoursArr.length; i++){
+          //     var projectedCustomers = this.numOfGuests()
+          //     var cookiesSales = this.sales(projectedCustomers) 
+          //     this.dailySales.push(cookiesSales)
+          //   }
+          // },
+          // render: function(){
+            //   var list = document.getElementById("Sales");
+            //   var listElement = document.createElement('li');
+            //   listElement.textContent = this.name;
+            //   list.appendChild(listElement);
+            //   for (var i = 0; i < storeHoursArr.length; i++){
+              //     var time = document.createElement('li');
+              //     time.textContent = `${storeHoursArr[i]}: ${this.dailySales[i]} cookies`
+              //     list.appendChild(time);
+              //   }
+              //  }
+              // }
+              // seattle.generateDailySales();
+              // seattle.render();
+              // pair coding goals matt driveing Kale Navigating.
+              // take 115 thorugh 119 make one looped func to get gusest per hour GLOBAL
+              // convert generateDailySales to constructor method PROTOTYPE OR INTERNAL:
+              // tableData.textContent = this.color;
+              // tableRow.appendChild(tableData);
+              
+              // creat protype of render 
+              // create table and poputlate
+var storeHoursArr = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm']
+var allLocations = [];
+var tableData = document.getElementById('table');
+var store = [];
+              
+function Location(min, max, avg, store,){
     this.minCustomers = min;
     this.maxCustomers = max;
     this.avgCookies = avg;
     this.storeName = store;
     this.dailySales =  [];
-    this.storeHoursArr = [];
-
-    
-    allLocations.push(this);
+    this.guestsCookie = [];
+    stores.push(this);
   }
+
   Location.prototype.cookiecount = function(){   
 // loop over hour for num of cust
+  var cookiesHour = [];
   var numberOfCustomers = 0;
   var customerPerHour = [];
   for (var i = 0; i < storeHoursArr.length; i++){      
-      numberOfCustomers = numberOfGuests(this.minCustomers, this.maxCustomers);
-      customerPerHour = Math.ceil(numberOfCustomers * this.avgCookies); 
+      // numberOfCustomers = numberOfGuests(this.minCustomers, this.maxCustomers);
+      customerPerHour = Math.ceil(numberOfCustomers * this.avgCookies);
+      guestCount = Math.ceil(Math.random() * (maxCustomers - minCustomers + 1) + minCustomers);
+      customerPerHour.push(customerPerHour);
+      cookiesHour.push(cookiesHour);
+      numberOfCustomers += cookiesHour;
+      this.guestCookie.push([storeHoursArr[i], cookiesHour[i]]);
+      
             
     } 
-console.log(customerPerHour)
+  This.dailySales.push(numberOfCustomers);
+  console.log(customerPerHour)
   }
-  var seattle = new Location(23,65,6.3,'Seattle');
-  var tokyo = new Location(3, 24, 1.2, 'tokyo');
-  var dubai = new Location(11, 38, 3.7, 'dubai');
-  var paris = new Location(20, 38, 2.3, 'paris');
-  var lima = new Location(2, 16, 4.6, 'lima');
+  var seattle = new Location(23, 65, 6.3,'Seattle');
+  var tokyo = new Location(3, 24, 1.2, 'Tokyo');
+  var dubai = new Location(11, 38, 3.7, 'Dubai');
+  var paris = new Location(20, 38, 2.3, 'Paris');
+  var lima = new Location(2, 16, 4.6, 'Lima');
 
 // helper functions
 function numberOfGuests(minCustomers,maxCustomers){
@@ -182,6 +193,42 @@ function numberOfGuests(minCustomers,maxCustomers){
   };
 }
 
+Location.prototype.renderData = function(){
+  var tableRow = document.createElement('tr');
+  parentElement.appendChild(tableRow);
+  var cookiearrayholder = this.guestCookie;
+
+  for(var i=0;i<cookiearrayholder.length;i++) {
+    var tableData = document.createElement('td');
+    tableData.textContent = cookiearrayholder[i][1]
+    tableRow.appendChild(tableData);
+  }
+}
+
+function buildHeader(){
+  var tableRow = document.createElement('tr');
+  parentElement.appendChild(tableRow);
+  
+
+  for(var i=0;i <storeHoursArr.length; i++){
+    var tableHead = document.createElement('th')
+    tableRow.appendChild(tableHead);
+   
+    tableHead.textContent = `${storeHoursArr[i]}`; 
+    tableRow.appendChild(tableHead);
+  }
+}
+
+
+function print(){
+  for(var i=0; i<stores.length;i++) {
+    stores[i].cookiecount();
+  }
+}
+
+buildHeader();
+print();
+seattle.renderData();
 //referance notes
 
 
@@ -227,9 +274,6 @@ function numberOfGuests(minCustomers,maxCustomers){
 // // CONSOLE git checkout -b (NEW BRANCH NAME) 
 // // GO BACK TO TOP OF STACK
 
-// var tableData = document.createElement('td');
-// tableData.textContent = this.color;
-// tableRow.appendChild(tableData);
 
  
 // line 136 grabbing list create a list element i need to give list element the content i want
