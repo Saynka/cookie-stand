@@ -1,9 +1,47 @@
+h1{
+  text-align: center;
+  font-size: xx-large;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-style: oblique;
+}
+
+*{
+ box-sizing: border-box;
+ margin-left: 10%;
+ margin-right: 10%;
+ margin top: 8%;
+}
+
 
 
 body{
   background-color: rgb(20, 58, 45);
+  font-size: large;
+  font-family: Times;
+ 
 }
 
 #salmon{
   
+}
+
+
+
+#family {
+
+}
+
+h2 {
+  text-align: center;
+  font-size: x-large;
+
+}
+
+#aboutusp {
+  text-align: center;
+  font-size: x-large;
+}
+
+#tobar {
+  color: rgb(58, 36, 57);
 }
