@@ -78,4 +78,40 @@ form.addEventListener('submit', function(event){
   storeName.renderTableList();
 });
 
+function footer() {
+  var footerRow = document.createElement('tr');
+  var dailyTotalAllStores = document.createElement('td');
+  dailyTotalAllStores.textContent = 'All Stores Hourly Total';
+  footerRow.appendChild(dailyTotalAllStores);
+  for (var i = 0; i < clock.length; i++) {
+    var hourlyTotals = 0;
+    for (var j = 0; j < allStores.length; j++) {
+      hourlyTotals += allStores[j].hourlyCookies[i];
+    }
+    var footerData = document.createElement('td')
+    footerData.textContent = hourlyTotals;
+    footerRow.appendChild(footerData);
+  }
+  parentElement.appendChild(footerRow);
+}
 
+form.addEventListener('submit', function (event) {
+  event.preventDefault();
+  var storeName = event.target.storename.value;
+  var minCust = parseInt(event.target.mincustomer.value);
+  var maxCust = parseInt(event.target.maxcustomer.value);
+  var avgCookie = parseInt(event.target.avgcookie.value);
+  var storeName = new Location(storeName, minCust, maxCust, avgCookie);
+  parentElement.innerHTML = '';
+  renderFullTable();
+})
+
+function renderFullTable() {
+  generateHeader();
+  for (var i=0; i< allStores.length; i++){
+    allStores[i].cookiesPerHour();
+    allStores[i].renderTableList();
+  }
+  footer();
+}
+renderFullTable();
